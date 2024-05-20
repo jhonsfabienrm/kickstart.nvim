@@ -31,8 +31,7 @@ return {
 
     local filetype = {
       'filetype',
-      icons_enabled = false,
-      icon = nil,
+      icons_enabled = true,
     }
 
     local branch = {
@@ -46,22 +45,12 @@ return {
       padding = 0,
     }
 
-    -- cool function for progress
-    local progress = function()
-      local current_line = vim.fn.line '.'
-      local total_lines = vim.fn.line '$'
-      local chars = { '__', '▁▁', '▂▂', '▃▃', '▄▄', '▅▅', '▆▆', '▇▇', '██' }
-      local line_ratio = current_line / total_lines
-      local index = math.ceil(line_ratio * #chars)
-      return chars[index]
-    end
-
     require('lualine').setup {
       options = {
         icons_enabled = true,
         theme = 'onedark',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = { 'alpha', 'dashboard', 'NvimTree', 'Outline' },
         always_divide_middle = true,
       },
@@ -70,9 +59,9 @@ return {
         lualine_b = { mode },
         lualine_c = {},
         -- lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_x = { diff, 'encoding', filetype },
+        lualine_x = { diff, filetype },
         lualine_y = { location },
-        lualine_z = { progress },
+        lualine_z = {},
       },
       inactive_sections = {
         lualine_a = {},

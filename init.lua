@@ -30,6 +30,9 @@ require('lazy').setup({
   require 'custom.plugins.bufferline',
   require 'custom.plugins.toggleterm',
   require 'custom.plugins.dashboard',
+  require 'custom.plugins.noice_nvim',
+  require 'custom.plugins.old_vim_plugins',
+  require 'custom.plugins.stdheader',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
