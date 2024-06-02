@@ -156,7 +156,7 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -169,6 +169,17 @@ return {
         -- tsserver = {},
         --
 
+        -- clangd = {
+        --   settings = {
+        --     clangd = {
+        --       completion = {
+        --         callSnipet = 'Replace',
+        --       },
+        --       diagnostics = { disable = { 'virtual_text', 'signs' } },
+        --     },
+        --   },
+        -- },
+        -- harper_ls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -183,6 +194,11 @@ return {
             },
           },
         },
+      }
+      vim.diagnostic.config {
+        underline = false,
+        virtual_text = false,
+        signs = false,
       }
 
       -- Ensure the servers and tools above are installed
